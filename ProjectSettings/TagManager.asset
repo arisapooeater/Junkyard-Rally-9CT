@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Floor
   - Opponent Floor
+  - Opponent
   layers:
   - Default
   - TransparentFX
