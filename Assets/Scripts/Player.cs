@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 7.5f;
     [SerializeField]
-
     private float _gravity = 15.0f;
     [SerializeField]
     private float _jump = 5.0f;
@@ -17,9 +16,6 @@ public class Player : MonoBehaviour
     private Vector3 _startingPosition;
     private Vector3 dir;
 
-    [Header("Camera Settings")]
-    [SerializeField]
-    private float _cameraSensitivity = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,7 +39,17 @@ public class Player : MonoBehaviour
 
     void CheckForOutOfBounds()
     {
+        if(transform.position.y < -20){
+            _controller.enabled = false;
+            transform.position = _startingPosition;
+            _controller.enabled = true;
+        }
 
+        if(transform.position.y > 20){
+            _controller.enabled = false;
+            transform.position = _startingPosition;
+            _controller.enabled = true;
+        }
     }
     void Move()
     {

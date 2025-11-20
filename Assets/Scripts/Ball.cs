@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     [SerializeField]
     private Vector3 _startingPosition;
 
+    private float _speed = 10.0f;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -28,6 +30,20 @@ public class Ball : MonoBehaviour
         {
             _rb.linearVelocity = Vector3.zero;
             transform.position = _startingPosition;
+        }
+    }
+
+    void OnCollisionEnter(Collision other){
+        if(other.gameObject.tag == "Player"){
+            float.x = Random.Range(-0.05f, 0.05f);
+            Vector3 velocity = new Vector3((transform.position.x - other.transform.position.x) + x, 30, (transform.position.z - other.transform.position.z) + 25);
+            _rb.AddForce(velocity * _speed, ForceMode.force);
+        }
+
+        if(other.gameObject.tag == "Opponent"){
+            float.x = Random.Range(-0.05f, 0.05f);
+            Vector3 velocity = new Vector3((transform.position.x - other.transform.position.x) + x, 30, (transform.position.z - other.transform.position.z) -25);
+            _rb.AddForce(velocity * _speed, ForceMode.force);
         }
     }
 }

@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1082939555}
   m_Layer: 0
   m_Name: Back Opponent Floor
-  m_TagString: Untagged
+  m_TagString: Opponent Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 1579109729}
   - component: {fileID: 1579109728}
   - component: {fileID: 1579109733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1622,9 +1622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 7.5
-  _gravity: 15
-  _jump: 5
-  _startingPosition: {x: 0, y: 0, z: 0}
+  _gravity: 20
+  _jump: 4
+  _startingPosition: {x: 0, y: 2, z: -13}
   _cameraSensitivity: 2
 --- !u!1 &1635045704
 GameObject:
