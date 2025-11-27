@@ -35,15 +35,15 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter(Collision other){
         if(other.gameObject.tag == "Player"){
-            float.x = Random.Range(-0.05f, 0.05f);
+            float x = Random.Range(-0.05f, 0.05f);
             Vector3 velocity = new Vector3((transform.position.x - other.transform.position.x) + x, 30, (transform.position.z - other.transform.position.z) + 25);
-            _rb.AddForce(velocity * _speed, ForceMode.force);
+            _rb.AddForce(velocity * _speed, ForceMode.Force);
         }
 
         if(other.gameObject.tag == "Opponent"){
-            float.x = Random.Range(-0.05f, 0.05f);
+            float x = Random.Range(-0.05f, 0.05f);
             Vector3 velocity = new Vector3((transform.position.x - other.transform.position.x) + x, 30, (transform.position.z - other.transform.position.z) -25);
-            _rb.AddForce(velocity * _speed, ForceMode.force);
+            _rb.AddForce(velocity * _speed, ForceMode.Force);
         }
     }
 }
