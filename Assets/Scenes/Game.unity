@@ -587,9 +587,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 277334007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e41c5492e30c46915df2e59665245, type: 3}
+  m_Script: {fileID: 11500000, guid: 0808e079952296b4bb7272f1e3a833de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 392732851}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +627,7 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 2
   m_GateFitMode: 2
@@ -676,13 +677,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24184473, y: 0.66446304, z: -0.24184473, w: 0.66446304}
-  m_LocalPosition: {x: -20, y: 15, z: -10}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 1.5, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40, y: 90, z: 0}
+  m_Father: {fileID: 1579109732}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,9 +1470,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159804996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98e41c5492e30c46915df2e59665245, type: 3}
+  m_Script: {fileID: 11500000, guid: 0808e079952296b4bb7272f1e3a833de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 392732851}
 --- !u!1 &1579109727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1608,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1579109733
@@ -1784,7 +1787,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: bb4a51e775c2d0f499db13de73b8d587, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b972bedc9b0a7d14bb14c5a261446505, type: 2}
   m_BuildHeightMesh: 0
 --- !u!65 &1985196571
 BoxCollider:
@@ -1869,7 +1872,7 @@ Transform:
   m_GameObject: {fileID: 1985196569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 40, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1982,7 +1985,6 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1635045708}

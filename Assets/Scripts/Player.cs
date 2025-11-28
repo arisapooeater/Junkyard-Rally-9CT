@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {   
     private CharacterController _controller;
     private Camera _mainCam;
+    private float _rotationX; 
 
     [Header("Character Settings")]
     [SerializeField]
@@ -14,11 +15,16 @@ public class Player : MonoBehaviour
     private float _jump = 5.0f;
     [SerializeField]
     private Vector3 _startingPosition;
+
+    [Header("Camera Settings")]
+    [SerializeField]
+    private float _cameraSensitivity = 2;
     private Vector3 dir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         _controller = GetComponent<CharacterController>();
         if(_controller == null){
             Debug.Log("Controller is NULL");
@@ -33,8 +39,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.None;
+        }
         Move();
         CheckForOutOfBounds();
+        Look();
     }
 
     void CheckForOutOfBounds()
@@ -58,7 +68,7 @@ public class Player : MonoBehaviour
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
-            dir = new Vector3(verticalInput, 0, -horizontalInput);
+            dir = new Vector3(horizontalInput, 0, verticalInput);
             dir = transform.TransformDirection(dir);  
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -69,5 +79,18 @@ public class Player : MonoBehaviour
 
         dir.y -= _gravity * Time.deltaTime;
         _controller.Move(dir * _speed * Time.deltaTime);
+    }
+
+    void Look(){
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        Vector3 currentRotation = transform.localEulerAngles;
+        currentRotation.y += mouseX * _cameraSensitivity;
+        transform.localRotation = Quaternion.AngleAxis(currentRotation.y, Vector3.up);
+
+        _rotationX -= mouseY * _cameraSensitivity;
+        _rotationX = Mathf.Clamp(_rotationX, -30f, 60f);    
+        _mainCam.transform.localEulerAngles = new Vector3(_rotationX, 0, 0);
     }
 }
